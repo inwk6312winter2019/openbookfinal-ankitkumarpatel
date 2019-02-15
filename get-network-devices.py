@@ -74,8 +74,36 @@ def getNetworkDevices(ticket):
 	#Iterate through network device data and print the id and series name of each device
 	for i in r_json["response"]:
 		print(i["id"] + "   " + '{:53}'.format(i["series"]) + "  " + i["reachabilityStatus"])
-		
+
+
+def getnetworkdevicecount(ticket):
+	# URL for network-device REST API call to get list of exisiting devices on the network.
+	url = "https://" + controller + "/api/v1/network-device/count"
+
+	# Content type as well as the ticket must be included in the header
+	header = {"content-type": "application/json", "X-Auth-Token": ticket}
+
+	# this statement performs a GET on the specified network device url
+	response = requests.get(url, headers=header, verify=False)
+
+	# json.dumps serializes the json into a string and allows us to
+	# print the response in a 'pretty' format with indentation etc.
+	print("Network Devices Count = ")
+	print(json.dumps(response.json(), indent=4, separators=(',', ': ')))
+
+	# convert data to json format.
+	r_json = response.json()
+
+	"""
+	# Iterate through network device data and print the id and series name of each device
+	for i in r_json["response"]:
+		print(i["id"] + "   " + '{:53}'.format(i["series"]) + "  " + i["reachabilityStatus"])
+
+	"""
+	for item in response:
+		print(item["response"])
 
 
 theTicket=getTicket()
 getNetworkDevices(theTicket)
+getnetworkdevicecount(theTicket)

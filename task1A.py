@@ -28,7 +28,7 @@ def count_the_article(filename):
 def sorted_words(filename):
 
     hist = dict()
-    file = open('filename')
+    file = open(filename)
     for line in file:
         line = line.split()
         for word in line:
@@ -43,7 +43,7 @@ def sorted_words(filename):
 def character_word_count(filename):
 
     hist = dict()
-    file = open('filename')
+    file = open(filename)
     for line in file:
         line = line.split()
         for word in line:
@@ -55,14 +55,13 @@ def starts_with_vow(filename):
 
     tup = ("a", "e", "i", "o", "u")
     hist = dict()
-    file = open('filename')
+    file = open(filename)
     for line in file:
         line = line.split()
         for word in line:
             word = word.strip(string.punctuation + string.whitespace).lower()
             if word[0] in tup:
-
-            hist[word] = hist.get(word, 0) + 1
+                hist[word] = hist.get(word, 0) + 1
 
     return len(hist)
 
@@ -72,7 +71,7 @@ def starts_with_vow(filename):
 
 def histogram(filename):
 
-    hist =dict()
+    hist = dict()
     file = open('filename')
     for line in file:
         line = line.split()
@@ -81,3 +80,29 @@ def histogram(filename):
             hist[word] = hist.get(word, 0) + 1
 
     return hist
+
+#  book1 oprations
+fname = 'Book1.txt'
+print(unique_words(fname))
+print(count_the_article(fname))
+print(sorted_words(fname))
+print(character_word_count(fname))
+print(starts_with_vow(fname))
+print("==================================================")
+
+#  book2 oprations
+fname = 'Book2.txt'
+print(unique_words(fname))
+print(count_the_article(fname))
+print(sorted_words(fname))
+print(character_word_count(fname))
+print(starts_with_vow(fname))
+print("==================================================")
+
+#  book3 oprations
+fname = 'Book3.txt'
+print(unique_words(fname))
+print(count_the_article(fname))
+print(sorted_words(fname))
+print(character_word_count(fname))
+print(starts_with_vow(fname))

@@ -65,5 +65,15 @@ print ("Hosts = ")
 print (json.dumps(response.json(), indent=4, separators=(',', ': ')))
 
 r_resp=response.json()
-
+print(r_resp)
 print(r_resp["response"][0]["hostIp"])
+
+hosts = dict()
+for item in r_resp["response"]:
+    hosts[item["id"],item["hostIp"]] = item["hostMac"]
+
+print("printing required dictionary: ")
+print(hosts)
+
+
+

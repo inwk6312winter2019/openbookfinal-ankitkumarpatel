@@ -13,21 +13,28 @@ def unique_words(filename):
 
 
 
-def count_the_article(0):
+def count_the_article(filename):
+
+    count = 0
+    list_2 = ["a", "the", "at", "run", "to","and","are","or","for","an","this"]
+    hist = histogram(filename)
+    for item in list_2:
+        if item in hist:
+            count += 1
+
+    return count
+
+
+def sorted_words(filename):
 
 
 
 
-def sorted_words(0):
+
+def character_word_count(filename):
 
 
-
-
-
-def character_word_count(0):
-
-
-def starts_with_vow():
+def starts_with_vow(filename):
 
 
 

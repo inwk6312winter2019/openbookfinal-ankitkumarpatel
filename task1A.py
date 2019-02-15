@@ -72,7 +72,7 @@ def starts_with_vow(filename):
 def histogram(filename):
 
     hist = dict()
-    file = open('filename')
+    file = open(filename)
     for line in file:
         line = line.split()
         for word in line:

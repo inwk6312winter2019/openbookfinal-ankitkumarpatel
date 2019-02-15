@@ -42,8 +42,30 @@ def sorted_words(filename):
 
 def character_word_count(filename):
 
+    hist = dict()
+    file = open('filename')
+    for line in file:
+        line = line.split()
+        for word in line:
+            word = word.strip(string.punctuation + string.whitespace).lower()
+            hist[word] = len(word)
+    return hist
 
 def starts_with_vow(filename):
+
+    tup = ("a", "e", "i", "o", "u")
+    hist = dict()
+    file = open('filename')
+    for line in file:
+        line = line.split()
+        for word in line:
+            word = word.strip(string.punctuation + string.whitespace).lower()
+            if word[0] in tup:
+
+            hist[word] = hist.get(word, 0) + 1
+
+    return len(hist)
+
 
 
 

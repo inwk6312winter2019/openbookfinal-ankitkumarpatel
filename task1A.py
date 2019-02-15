@@ -27,8 +27,17 @@ def count_the_article(filename):
 
 def sorted_words(filename):
 
+    hist = dict()
+    file = open('filename')
+    for line in file:
+        line = line.split()
+        for word in line:
+            word = word.strip(string.punctuation + string.whitespace).lower()
+            hist[word] = len(word)
+    lst = [(value, key) for key, value in hist.items()]
+    lst.sort(reverse=True)
 
-
+    return lst
 
 
 def character_word_count(filename):
